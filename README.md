@@ -32,8 +32,8 @@ Contributors
 Examples
 ========
 * Sublime Text with Monokai Extended Bright color scheme
-  ![Sublime Text with Monokai Extended Bright color scheme](./Screenshots/Sublime%20Text%203%20-%20Monokai%20Extended%20Bright.png?raw=true)
+  ![Sublime Text with Monokai Extended Bright color scheme](https://github.com/13xforever/x86-assembly-textmate-bundle/blob/master/Screenshots/Sublime%20Text%203%20-%20Monokai%20Extended%20Bright.png?raw=true)
 * Atom with One Dark syntax theme
-  ![Atom with One Dark syntax theme](./Screenshots/Atom%20-%20One%20Dark.png?raw=true)
+  ![Atom with One Dark syntax theme](https://github.com/13xforever/x86-assembly-textmate-bundle/blob/master/Screenshots/Atom%20-%20One%20Dark.png?raw=true)
 * Visual Studio Code with default Dark color theme
-  ![Visual Studio Code with default Dark color theme](./Screenshots/Visual%20Studio%20Code%20-%20Dark.png?raw=true)
+  ![Visual Studio Code with default Dark color theme](https://github.com/13xforever/x86-assembly-textmate-bundle/blob/master/Screenshots/Visual%20Studio%20Code%20-%20Dark.png?raw=true)
