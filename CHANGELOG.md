@@ -1,3 +1,6 @@
+## 2.1.5
+Small highlighting fix for some string manipulation instructions
+
 ## 2.1.2 - First Release for Atom
 As of right now, this bundle have:
 * Basic support for nasm/yasm/tasm/gas syntaxes

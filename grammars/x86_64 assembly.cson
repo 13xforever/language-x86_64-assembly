@@ -306,7 +306,7 @@ repository:
       }
       {
         match: "\\b(f((inc|dec)stp|free|n?(init|clex|st[cs]w|stenv|save)|ld(cw|env)|rstor|nop)|f?wait)\\b"
-        name: "keyword.mnemonic.fpu.control"
+        name: "keyword.mnemonic.fpu.control-management"
       }
       {
         match: "\\b(fx(save|rstor)(64)?)\\b"
@@ -442,7 +442,7 @@ repository:
       }
       {
         match: "\\b((mov|cmp|sca|lod|sto)(s[bdw]?)|rep(n?[ez])?)\\b"
-        name: "keyword.mnemonic.general-purpose.string"
+        name: "keyword.mnemonic.general-purpose.strings"
       }
       {
         match: "\\b((in|out)(s[bdw]?)?)\\b"
