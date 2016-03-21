@@ -763,7 +763,7 @@ repository:
         name: "keyword.mnemonic.system"
       }
       {
-        match: "\\b(lock|hlt|rsm|(rd|wr)(msr|[fg]sbase)|rd(pmc|tscp?)|sys(enter|exit))\\b"
+        match: "\\b(lock|hlt|rsm|(rd|wr)(msr|pkru|[fg]sbase)|rd(pmc|tscp?)|sys(enter|exit))\\b"
         name: "keyword.mnemonic.system"
       }
       {
