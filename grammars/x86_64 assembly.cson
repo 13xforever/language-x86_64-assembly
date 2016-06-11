@@ -392,7 +392,7 @@ repository:
     match: "\\b(k(add|andn?|(xn?)?or|mov|not|(or)?test|shift[lr])[bdqw]|kunpck(bw|wd|dq))\\b"
     name: "keyword.mnemonic.opmask"
   "mnemonics-future-intel-other":
-    match: "\\b(clflushopt|clwb|pcommit)\\b"
+    match: "\\b(clflushopt|clwb|pcommit|endbranch)\\b"
     name: "keyword.mnemonic.other"
   "mnemonics-general-purpose":
     patterns: [
