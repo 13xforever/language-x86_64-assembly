@@ -395,7 +395,7 @@ repository:
     match: "\\b(k(add|andn?|(xn?)?or|mov|not|(or)?test|shift[lr])[bdqw]|kunpck(bw|wd|dq))\\b"
     name: "keyword.mnemonic.opmask"
   "mnemonics-future-intel-cet":
-    match: "\\b((inc|save|rstor)ssp|wru?ss|(set|clr)ssby|endbranch|endbr(32|64))\\b"
+    match: "\\b((inc|save|rstor)ssp|wru?ss|(set|clr)ssbsy|endbranch|endbr(32|64))\\b"
     name: "keyword.mnemonic.cet"
   "mnemonics-future-intel-other":
     match: "\\b(clflushopt|clwb|pcommit)\\b"
