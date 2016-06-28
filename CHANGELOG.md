@@ -1,3 +1,6 @@
+## 2.1.16
+Fix for single-line comment settings
+
 ## 2.1.15
 Intel CFE extensions
 
