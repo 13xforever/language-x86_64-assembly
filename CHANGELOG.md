@@ -1,3 +1,6 @@
+## 2.2.0
+Overhauled highlighting for sections, labels, prefixes, and numbers
+
 ## 2.1.16
 Fix for single-line comment settings
 
