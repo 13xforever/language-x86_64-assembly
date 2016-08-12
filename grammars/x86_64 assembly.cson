@@ -411,12 +411,12 @@ repository:
         name: "keyword.mnemonic.avx512.other"
       }
     ]
-  "mnemonics-future-intel-opmask":
-    match: "\\b(k(add|andn?|(xn?)?or|mov|not|(or)?test|shift[lr])[bdqw]|kunpck(bw|wd|dq))\\b"
-    name: "keyword.mnemonic.opmask"
   "mnemonics-future-intel-cet":
     match: "\\b((inc|save|rstor)ssp|wru?ss|(set|clr)ssbsy|endbranch|endbr(32|64))\\b"
     name: "keyword.mnemonic.cet"
+  "mnemonics-future-intel-opmask":
+    match: "\\b(k(add|andn?|(xn?)?or|mov|not|(or)?test|shift[lr])[bdqw]|kunpck(bw|wd|dq))\\b"
+    name: "keyword.mnemonic.opmask"
   "mnemonics-future-intel-other":
     match: "\\b(clflushopt|clwb|pcommit)\\b"
     name: "keyword.mnemonic.other"
@@ -520,6 +520,31 @@ repository:
   "mnemonics-intel-isa-sha":
     match: "\\b(sha(1rnds4|256rnds2|1nexte|(1|256)msg[12]))\\b"
     name: "keyword.mnemonic.sha"
+  "mnemonics-invalid":
+    patterns: [
+      {
+        include: "#mnemonics-invalid-amd-sse5"
+      }
+    ]
+  "mnemonics-invalid-amd-sse5":
+    patterns: [
+      {
+        match: "\\b(com[ps][ds]|pcomu?[bdqw])\\b"
+        name: "invalid.keyword.mnemonic.sse5.comparison"
+      }
+      {
+        match: "\\b(cvtp(h2ps|s2ph)|frcz[ps][ds])\\b"
+        name: "invalid.keyword.mnemonic.sse5.conversion"
+      }
+      {
+        match: "\\b(fn?m((add|sub)[ps][ds])|ph(addu?(b[dqw]|w[dq]|dq)|sub(bw|dq|wd))|pma(css?(d(d|q[hl])|w[dw])|dcss?wd))\\b"
+        name: "invalid.keyword.mnemonic.sse5.packed-arithmetic"
+      }
+      {
+        match: "\\b(pcmov|permp[ds]|pperm|prot[bdqw]|psh[al][bdqw])\\b"
+        name: "invalid.keyword.mnemonic.sse5.simd-integer"
+      }
+    ]
   "mnemonics-mmx":
     patterns: [
       {
