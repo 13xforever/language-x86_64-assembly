@@ -749,15 +749,23 @@ repository:
   "mnemonics-supplemental-amd":
     patterns: [
       {
-        match: "\\b(clgi|int3|invlpga|iretw|skinit|stgi|vm(load|mcall|run|save))\\b"
+        match: "\\b(bl([cs](fill|ic?|msk)|cs)|t1mskc|tzmsk)\\b"
+        name: "keyword.mnemonic.supplemental.amd.general-purpose"
+      }
+      {
+        match: "\\b(clgi|int3|invlpga|iretw|skinit|stgi|vm(load|mcall|run|save)|monitorx|mwaitx)\\b"
         name: "keyword.mnemonic.supplemental.amd.system"
+      }
+      {
+        match: "\\b([ls]lwpcb|lwp(ins|val))\\b"
+        name: "keyword.mnemonic.supplemental.amd.profiling"
       }
       {
         match: "\\b(movnts[ds])\\b"
         name: "keyword.mnemonic.supplemental.amd.memory-management"
       }
       {
-        match: "\\b(prefetch)\\b"
+        match: "\\b(prefetch|clzero)\\b"
         name: "keyword.mnemonic.supplemental.amd.cache-management"
       }
       {
