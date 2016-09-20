@@ -3,6 +3,7 @@ fileTypes: [
   "nasm"
   "yasm"
   "inc"
+  "s"
 ]
 name: "x86 and x86_64 Assembly"
 patterns: [
@@ -35,7 +36,7 @@ repository:
   comments:
     patterns: [
       {
-        match: ";.*$"
+        match: "(;|(^|\\s)#\\s).*$"
         name: "comment.line"
       }
       {
@@ -79,11 +80,11 @@ repository:
   entities:
     patterns: [
       {
-        match: "(section\\s+)?\\.((ro)?data|bss|text)"
+        match: "((section|segment)\\s+)?\\.((ro)?data|bss|text)"
         name: "entity.name.section"
       }
       {
-        match: "^\\s*(\\w|[\\._?])(\\w|[_$#@~\\.?])*\\:"
+        match: "^\\s*(%%)?(\\w|[\\._?])(\\w|[_$#@~\\.?])*\\:"
         name: "entity.name.function"
       }
       {
@@ -91,7 +92,7 @@ repository:
         name: "invalid.entity.name.function"
       }
       {
-        match: "^\\.?(globa?l)\\b"
+        match: "^\\.?(globa?l|extern)\\b"
         name: "entity.directive"
       }
       {
@@ -892,12 +893,26 @@ repository:
         ]
       }
       {
-        begin: "^\\s*[%#]\\s*(define|defined|elif|else|if|ifdef|ifndef|line|pragma|rep|undef|endif)\\b"
+        begin: "^\\s*[%#]\\s*((xi?)?define|defined|elif(def)?|else|if(macro|ctx|idni?|num|str)?|ifn?def|line|(end)?macro|pragma|undef|endif)\\b"
         captures:
           "1":
             name: "keyword.control.import.c"
         end: "(?=(?://|/\\*))|$"
         name: "meta.preprocessor.c"
+        patterns: [
+          {
+            match: "(?>\\\\\\s*\\n)"
+            name: "punctuation.separator.continuation.c"
+          }
+        ]
+      }
+      {
+        begin: "^\\s*[#%]\\s*(assign|strlen|substr|(end|exit)?rep|push|pop)\\b"
+        captures:
+          "1":
+            name: "keyword.control"
+        end: "$"
+        name: "meta.preprocessor.nasm"
         patterns: [
           {
             match: "(?>\\\\\\s*\\n)"
@@ -1002,15 +1017,15 @@ repository:
   support:
     patterns: [
       {
-        match: "(?i)\\b(byte|([doqty]|dq)?word|(d|res)[bdoqtwy]?|ddq|incbin|equ|times)\\b"
+        match: "(?i)\\b(byte|([doqty]|dq)?word|(d|res)[bdoqtwy]?|ddq|incbin|equ|times|(end|i)?struc|at|iend)\\b"
         name: "support.type.asm"
       }
       {
-        match: "(?i)\\b(\\.?(align|bits|cpu|fpu)|use(16|32|64))\\b"
+        match: "(?i)\\b(\\.?(alignb?|bits|cpu|fpu)|use(16|32|64))\\b"
         name: "support.directive.asm"
       }
       {
-        match: "\\b(strict|nosplit|near|far|abs|rel|seg|wrt)\\b"
+        match: "\\b(strict|nosplit|near|far|abs|rel|seg|wrt|absolute|common)\\b"
         name: "support.modifier.asm"
       }
       {
