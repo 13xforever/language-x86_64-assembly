@@ -8,6 +8,12 @@ fileTypes: [
 name: "x86 and x86_64 Assembly"
 patterns: [
   {
+    include: "#registers"
+  }
+  {
+    include: "#mnemonics"
+  }
+  {
     include: "#constants"
   }
   {
@@ -24,12 +30,6 @@ patterns: [
   }
   {
     include: "#strings"
-  }
-  {
-    include: "#registers"
-  }
-  {
-    include: "#mnemonics"
   }
 ]
 repository:
@@ -73,7 +73,7 @@ repository:
         name: "constant.numeric.dec"
       }
       {
-        match: "\\b([0-9a-fA-F]+h|0x[0-9a-fA-F]+)\\b"
+        match: "\\b([0-9a-fA-F]+[hH]|0x[0-9a-fA-F]+)\\b"
         name: "constant.numeric.hex"
       }
     ]
