@@ -53,28 +53,36 @@ repository:
   constants:
     patterns: [
       {
-        match: "\\b(([0-9]+\\.[0-9]*)(e[+-]?[0-9]+)?|\\.?[0-9]+e[+-]?[0-9]+)\\b"
+        match: "\\b((([0-9\\_]+\\.[0-9\\_]*)(e[+-]?[0-9\\_]+)?|\\.?[0-9\\_]+e[+-]?[0-9\\_]+))\\b"
         name: "constant.numeric.floating-point"
       }
       {
-        match: "(\\$[0-9a-f]+)\\b"
+        match: "\\b([0-9\\_]+p[0-9\\_]*)\\b"
+        name: "constant.numeric.packed-bcd"
+      }
+      {
+        match: "(\\$0[0-9a-f]+)\\b"
         name: "constant.numeric.literal"
       }
       {
-        match: "\\b[01]+b\\b"
+        match: "\\b((0[by][01\\_]+)|([01\\_]+[by]))\\b"
         name: "constant.numeric.bin"
       }
       {
-        match: "\\b[0-7]+[oq]\\b"
+        match: "\\b((0[oq][0-7\\_]+)|([0-7\\_]+[oq]))\\b"
         name: "constant.numeric.oct"
       }
       {
-        match: "\\b[0-9]+\\b"
+        match: "\\b((0d[0-9\\_]+)|([0-9\\_]+d?))\\b"
         name: "constant.numeric.dec"
       }
       {
-        match: "\\b([0-9a-fA-F]+[hH]|0x[0-9a-fA-F]+)\\b"
+        match: "\\b((0[xh][0-9a-fA-F\\_]+)|([0-9a-fA-F\\_]+[hH]))\\b"
         name: "constant.numeric.hex"
+      }
+      {
+        match: "\\b(Inf|NaN)\\b"
+        name: "constant.numeric"
       }
     ]
   entities:
@@ -90,6 +98,10 @@ repository:
       {
         match: "^\\s*([$@~])(\\w|[_$#@~\\.?])*\\:"
         name: "invalid.entity.name.function"
+      }
+      {
+        match: "\\$"
+        name: "entity.label.special"
       }
       {
         match: "^\\.?(globa?l|extern)\\b"
@@ -979,11 +991,11 @@ repository:
   strings:
     patterns: [
       {
-        begin: "[\"']"
+        begin: "[\"'`]"
         beginCaptures:
           "0":
             name: "punctuation.definition.string.begin.asm"
-        end: "[\"']"
+        end: "[\"'`]"
         endCaptures:
           "0":
             name: "punctuation.definition.string.end.asm"
@@ -1017,7 +1029,7 @@ repository:
   support:
     patterns: [
       {
-        match: "(?i)\\b(byte|([doqty]|dq)?word|(d|res)[bdoqtwy]?|ddq|incbin|equ|times|(end|i)?struc|at|iend)\\b"
+        match: "(?i)\\b(s?byte|([doqtyz]|dq|s[dq]?)?word|(d|res)[bdoqtwyz]?|ddq|incbin|equ|times|(end|i)?struc|at|iend)\\b"
         name: "support.type.asm"
       }
       {
@@ -1031,6 +1043,10 @@ repository:
       {
         match: "\\b([ao](16|32|64))\\b"
         name: "support.prefix.asm"
+      }
+      {
+        match: "\\b__(utf((16|32)([lb]e)?)|float(8|16|32|64|80[me]|128[lh])|Infinity|[QS]?NaN)__\\b"
+        name: "support.function.asm"
       }
     ]
 scopeName: "source.asm.x86_64"
