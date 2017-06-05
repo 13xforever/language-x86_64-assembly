@@ -80,10 +80,6 @@ repository:
         match: "\\b((0[xh][0-9a-fA-F\\_]+)|([0-9a-fA-F\\_]+[hH]))\\b"
         name: "constant.numeric.hex"
       }
-      {
-        match: "\\b(Inf|NaN)\\b"
-        name: "constant.numeric"
-      }
     ]
   entities:
     patterns: [
